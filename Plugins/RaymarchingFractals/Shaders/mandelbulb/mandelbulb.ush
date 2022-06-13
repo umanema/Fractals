@@ -1,0 +1,57 @@
+#pragma once
+#include "/RaymarchingFractals/mandelbulb/include/SDFMandelbulb.ush"
+
+float3 localcamvec = normalize( mul(Parameters.CameraVector, LWCToFloat(GetPrimitiveData(Parameters).WorldToLocal)) );
+
+float totaldist = 0;
+
+SDFMandelbulb sdfMandelnulb;
+
+
+float3 RayPos = CurPos;
+RayPos += Offset;
+float4 color = 0;
+
+for (int i = 0; i < MaxSteps; i++)
+{
+
+    float4 resColor;
+    sdfMandelnulb.grow = Grow;
+    //RENDER
+
+    // sdfMandelnulb.light1 = float3(  0.577, 0.577, -0.577 );
+    sdfMandelnulb.light1 = lightDirection;
+    sdfMandelnulb.light2 = float3( -0.707, 0.000,  0.707 );
+
+    // sdfMandelnulb.color1 = float3(0.10,0.20,0.30);
+    // sdfMandelnulb.color2 = float3(0.02,0.10,0.30);
+    // sdfMandelnulb.color3 = float3(0.30,0.10,0.02);
+
+    sdfMandelnulb.color1 = Color1;
+    sdfMandelnulb.color2 = Color2;
+    sdfMandelnulb.color3 = Color3;
+
+    float curdensity = sdfMandelnulb.map(RayPos,resColor);
+    float4 color;
+
+
+    totaldist += curdensity;
+    float e = totaldist * 0.001;
+
+    if( curdensity < e)
+	{
+        color.rgb = sdfMandelnulb.render(RayPos, curdensity, resColor, localcamvec);
+        color.a = 1;
+        return color;
+	}
+
+    RayPos -= localcamvec * curdensity;
+
+	if (CurPos.x < 0 || CurPos.x > Scale || CurPos.y < 0 || CurPos.y > Scale || CurPos.z < 0 || CurPos.z > Scale || totaldist > MaxDist)
+	{
+		return 0;
+	}
+
+}
+
+return 0;

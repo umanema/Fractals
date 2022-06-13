@@ -1,0 +1,12 @@
+/NOLOGO
+/errorReport:prompt
+/MACHINE:x64
+/SUBSYSTEM:WINDOWS
+/DEF
+/NAME:"UnrealEditor-RaymarchingFractals.dll"
+/IGNORE:4221
+/NODEFAULTLIB
+"D:\dev\Unreal\Fractals\Intermediate\Build\Win64\FractalsEditor\Development\Engine\SharedPCH.Engine.ShadowErrors.h.obj"
+"D:\dev\Unreal\Fractals\Plugins\RaymarchingFractals\Intermediate\Build\Win64\UnrealEditor\Development\RaymarchingFractals\RaymarchingFractals.cpp.obj"
+"D:\dev\Unreal\Fractals\Plugins\RaymarchingFractals\Intermediate\Build\Win64\UnrealEditor\Development\RaymarchingFractals\Default.rc2.res"
+/OUT:"D:\dev\Unreal\Fractals\Plugins\RaymarchingFractals\Intermediate\Build\Win64\UnrealEditor\Development\RaymarchingFractals\UnrealEditor-RaymarchingFractals.lib"

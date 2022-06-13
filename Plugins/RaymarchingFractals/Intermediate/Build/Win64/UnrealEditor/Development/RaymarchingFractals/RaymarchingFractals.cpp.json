@@ -1,0 +1,14 @@
+{
+    "Version": "1.1",
+    "Data": {
+        "Source": "d:\\dev\\unreal\\fractals\\plugins\\raymarchingfractals\\source\\raymarchingfractals\\private\\raymarchingfractals.cpp",
+        "ProvidedModule": "",
+        "PCH": "d:\\dev\\unreal\\fractals\\intermediate\\build\\win64\\fractalseditor\\development\\engine\\sharedpch.engine.shadowerrors.h.pch",
+        "Includes": [
+            "d:\\dev\\unreal\\fractals\\plugins\\raymarchingfractals\\intermediate\\build\\win64\\unrealeditor\\development\\raymarchingfractals\\definitions.raymarchingfractals.h",
+            "d:\\dev\\unreal\\fractals\\plugins\\raymarchingfractals\\source\\raymarchingfractals\\public\\raymarchingfractals.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}
